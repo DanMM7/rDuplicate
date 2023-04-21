@@ -1,0 +1,7 @@
+- name: Pypi upload
+
+  uses: ortega2247/pypi-upload-action@v1
+  with:
+    user: 'DanMM7',
+    password: 1234
+    repository_url: 'https://github.com/DanMM7/rDuplicate/'
