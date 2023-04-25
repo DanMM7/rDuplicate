@@ -1,7 +1,28 @@
-- name: Pypi upload
+name: Pypi upload
 
-  uses: ortega2247/pypi-upload-action@v1
-  with:
-    user: 'DanMM7',
-    password: 1234
-    repository_url: 'https://github.com/DanMM7/rDuplicate/'
+on:
+  release:
+    type: [created]
+
+jobs:
+  deploy:
+  
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install setuptools wheel twine
+    - name: Build and publish
+      env:
+        TWINE_USERNAME: ${{secrects.PYPI.USERNAME}}
+        TWINE_PASSWORD: ${{secrects.PYPI.PASSOVER}}
+      run: |
+        python setup.py sdist bdist_wheel
+        twine upload dist/*
