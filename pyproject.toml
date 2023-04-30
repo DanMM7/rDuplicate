@@ -6,13 +6,13 @@ build-backend = "hatchling.build"
 name = "rDuplicate_package_DANMM7"
 version = "0.0.1"
 authors = [
-	{ name="Dan Malengela" email="jsystemall67@gmail.com" },
+	{ name="Dan Malengela", email="jsystemall67@gmail.com" },
 ]
 description = "Remove duplicate in sorted list"
 readme = "README.md"
 requires-python = ">=3.7"
 classifiers = [
-	"Programming Language :: Python :: 3"
+	"Programming Language :: Python :: 3",
 	"License :: OSI Approved :: MIT License",
 	"Operating System :: OS Independent",
 ]
